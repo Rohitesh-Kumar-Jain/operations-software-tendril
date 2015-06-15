@@ -50,7 +50,7 @@ include 'table.php';
 
 <div id="graphs-blurb">
     <nav style="display: inline-block;">
-        <a href="http://ganglia.wikimedia.org/latest/?r=hour&tab=ch&hreg[]=^<?= $host->name_short() ?>">ganglia</a>
+        <a href="https://ganglia.wikimedia.org/latest/?r=hour&tab=ch&hreg[]=^<?= $host->name_short() ?>">ganglia</a>
         <a href="https://icinga.wikimedia.org/cgi-bin/icinga/status.cgi?host=<?= $host->name_short() ?>&nostatusheader">icinga</a>
     </nav>
 </div>
