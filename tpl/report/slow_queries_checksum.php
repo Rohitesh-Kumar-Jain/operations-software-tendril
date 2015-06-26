@@ -36,7 +36,7 @@ function drawChart()
     var data = new google.visualization.DataTable();
 
     var cols = <?php print json_encode($g_cols); ?>;
-    var rows = <?php print json_encode($g_rows); ?>;
+    var rows = <?php print json_encode(map(function ($row) { return $row->export(); }, $g_rows)); ?>;
 
     for (var j in cols)
     {
@@ -106,11 +106,9 @@ function drawChart()
 
 <?php
 
-$servers = sql::query('tendril.servers')->fetch_all();
-
 foreach ($rows as $row)
 {
-	$host = new Host($row['server_id']);
+	$host = new Server($row['server_id']);
 	$sample = str_replace(',', ', ', $row['info']);
 
     list ($ip, $port) = explode(':', $row['host']);
