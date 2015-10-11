@@ -175,7 +175,7 @@ foreach ($rows as $row)
 		tag('td', array(
 			'title' => 'Tmax',
 			'class' => 'right',
-			'html' => $row['max_time'],
+			'html' => number_format($row['max_time'], 0),
 		)),
 		tag('td', array(
 			'title' => 'Tavg',
