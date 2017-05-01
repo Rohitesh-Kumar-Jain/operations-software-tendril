@@ -28,6 +28,18 @@
         </td>
         <td>
             <label>
+                <input type="checkbox" name="root" value="0" <?= pkg()->request('root', 'uint', 1) === 0 ? 'checked':'' ?> />
+                <span>root</span>
+            </label>
+        </td>
+        <td>
+            <label>
+                <input type="checkbox" name="dump" value="0" <?= pkg()->request('dump', 'uint', 1) === 0 ? 'checked':'' ?> />
+                <span>dump</span>
+            </label>
+        </td>
+        <td>
+            <label>
                 <input type="checkbox" name="wikiadmin" value="0" <?= pkg()->request('wikiadmin', 'uint', 1) === 0 ? 'checked':'' ?> />
                 <span>wikiadmin</span>
             </label>

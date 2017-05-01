@@ -26,7 +26,7 @@ class Package_Activity extends Package
             ->where_eq('p.command', 'Query')
             ->order('p.time', 'desc');
 
-        foreach (array('wikiadmin', 'wikiuser') as $user)
+        foreach (array('wikiadmin', 'wikiuser', 'root', 'dump') as $user)
         {
             if ($this->request($user, 'uint', 1) === 0)
             {
