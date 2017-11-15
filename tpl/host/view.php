@@ -50,8 +50,7 @@ include 'table.php';
 
 <div id="graphs-blurb">
     <nav style="display: inline-block;">
-        <a href="http://ganglia.wikimedia.org/latest/?r=hour&tab=ch&hreg[]=^<?= $host->name_short() ?>">ganglia</a>
-        <a href="https://icinga.wikimedia.org/cgi-bin/icinga/status.cgi?host=<?= $host->name_short() ?>&nostatusheader">icinga</a>
+        [ <a href="https://grafana.wikimedia.org/dashboard/db/prometheus-cluster-breakdown?cluster=mysql&orgId=1&var-datasource=<?= preg_match('/^(db2|labsdb2|es2|pc2|dbstore2|dbproxy2)/', $host->name_short()) ? 'codfw' : 'eqiad' ?>%20prometheus%2Fops&var-cluster=mysql&var-instance=<?= $host->name_short() ?>">Prometheus host metrics</a> | <a href="https://grafana.wikimedia.org/dashboard/db/mysql?&var-server=<?= $host->name_short() ?>&var-port=<?= $host->port == 3306 ? 9104 : $host->port + 1000 ?>&var-dc=<?= preg_match('/^(db2|labsdb2|es2|pc2|dbstore2|dbproxy2)/', $host->name_short()) ? 'codfw' : 'eqiad' ?>%20prometheus%2Fops">MySQL instance metrics</a> | <a href="https://icinga.wikimedia.org/cgi-bin/icinga/status.cgi?host=<?= $host->name_short() ?>&nostatusheader">icinga</a>
     </nav>
 </div>
 

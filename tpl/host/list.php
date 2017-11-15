@@ -25,7 +25,7 @@ input[name=host] {
         </td>
         <td>
             <nav>
-                <a href="http://ganglia.wikimedia.org/latest/?r=day&cs=&ce=&m=cpu_report&s=by+name&c=MySQL+eqiad&h=&host_regex=&max_graphs=0&tab=m&vn=&hide-hf=false&sh=1&z=small&hc=4">ganglia</a>
+                [ <a href="https://grafana.wikimedia.org/dashboard/db/mysql-aggregated">MySQL aggregated metrics</a> | <a href="https://grafana.wikimedia.org/dashboard/db/prometheus-cluster-breakdown?var-datasource=eqiad%20prometheus%2Fops&var-cluster=mysql&cluster=mysql">MySQL server metrics</a> ]
             </nav>
         </td>
     </tr>
