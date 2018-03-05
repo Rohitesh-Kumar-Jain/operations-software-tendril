@@ -187,7 +187,7 @@ foreach ($hosts as $row)
             'html' => $contact ? escape(contact(time() - $contact)): '',
         )),
         tag('td', array(
-            'class' => sprintf('qps %s', $row['qps'] > 10000 ? 'many': 'few'),
+            'class' => sprintf('qps %s', $row['qps'] > 25000 ? 'many': 'few'),
             'html' => escape($row['qps']),
         )),
         tag('td', array(
