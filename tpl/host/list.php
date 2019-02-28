@@ -25,7 +25,7 @@ input[name=host] {
         </td>
         <td>
             <nav>
-                [ <a href="https://grafana.wikimedia.org/dashboard/db/mysql-aggregated">MySQL aggregated metrics</a> | <a href="https://grafana.wikimedia.org/dashboard/db/prometheus-cluster-breakdown?var-datasource=eqiad%20prometheus%2Fops&var-cluster=mysql&cluster=mysql">MySQL server metrics</a> ]
+                [ <a href="https://grafana.wikimedia.org/dashboard/db/mysql-aggregated">MySQL aggregated metrics</a> | <a href="https://grafana.wikimedia.org/dashboard/db/cluster-overview?var-datasource=eqiad%20prometheus%2Fops&var-cluster=mysql&cluster=mysql">MySQL server metrics</a> ]
             </nav>
         </td>
     </tr>
