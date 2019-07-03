@@ -18,6 +18,15 @@
     color: red;
 }
 
+#activity-processlist .query .info > div {
+    margin: 0;
+    max-height: 2em;
+    overflow: scroll;
+    padding: 0;
+    word-wrap: break-word;
+    word-wrap: anywhere; /*Firefox only*/
+}
+
 </style>
 
 <form id="activity-hide" method="GET" class="search merge-down">
@@ -139,7 +148,9 @@ foreach ($processlist as $row)
         tag('td', array(
             'class' => 'info',
             'colspan' => 6,
-            'html' => trim($sample) ? escape($sample): 'n/a',
+            'html' => tag('div', array(
+                'html' => trim($sample) ? escape($sample): 'n/a',
+            )),
         )),
     );
 
