@@ -606,10 +606,12 @@ create event ${server}_activity
       delete from innodb_locks where server_id = @server_id;
 
       insert into processlist  select @server_id, t.*, 0, 0, 0, 0 from ${server}_process t where t.user <> '${user}';
-      insert into innodb_trx   select @server_id, t.* from ${server}_innodb_trx t;
+      -- https://phabricator.wikimedia.org/T231182
+      -- insert into innodb_trx   select @server_id, t.* from ${server}_innodb_trx t;
       insert into innodb_locks select @server_id, t.* from ${server}_innodb_locks t;
 
-      insert into innodb_trx_log   select * from innodb_trx where server_id = @server_id;
+      -- https://phabricator.wikimedia.org/T231182
+      -- insert into innodb_trx_log   select * from innodb_trx where server_id = @server_id;
       insert into innodb_locks_log select now(), l.* from innodb_locks l;
 
       -- mariadb 5.5 bug
