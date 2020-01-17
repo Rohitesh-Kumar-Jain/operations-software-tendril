@@ -218,12 +218,14 @@ CREATE TABLE ${server}_col_privs (
 ) ENGINE=FEDERATED CONNECTION='${federated}/COLUMN_PRIVILEGES' DEFAULT CHARSET=utf8;
 
 drop table if exists ${server}_global_status;
+# If MySQL 5.7 or higher, the table below needs to point to performance_schema/global_status # T243081 and https://dev.mysql.com/doc/refman/5.7/en/status-table.html
 CREATE TABLE ${server}_global_status (
   VARIABLE_NAME varchar(64) NOT NULL DEFAULT '',
   VARIABLE_VALUE varchar(1024) DEFAULT NULL
 ) ENGINE=FEDERATED CONNECTION='${federated}/GLOBAL_STATUS' DEFAULT CHARSET=utf8;
 
 drop table if exists ${server}_global_vars;
+# If MySQL 5.7 or higher, the table below needs to point to performance_schema/global_status # T243081 and https://dev.mysql.com/doc/refman/5.7/en/status-table.html
 CREATE TABLE ${server}_global_vars (
   VARIABLE_NAME varchar(64) NOT NULL DEFAULT '',
   VARIABLE_VALUE varchar(1024) DEFAULT NULL
