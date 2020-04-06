@@ -8,7 +8,7 @@
     <script type="text/javascript" src="https://www.google.com/jsapi"></script>
     <script type="text/javascript" src='https://www.google.com/jsapi?autoload={"modules":[{"name":"visualization","version":"1","packages":["corechart","table","orgchart"]}]}'></script>
     <link href="/normalize.css" rel="stylesheet" type="text/css" />
-    <link rel="shortcut icon" href="favicon.ico"/>
+    <link rel="shortcut icon" href="/favicon.ico"/>
     <?= pkg()->head() ?>
 <style>
 
