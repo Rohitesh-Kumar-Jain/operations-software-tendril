@@ -48,7 +48,7 @@
 
 <script type="text/javascript">
 
-google.setOnLoadCallback(drawChart);
+google.charts.setOnLoadCallback(drawChart);
 
 function drawChart()
 {

@@ -5,8 +5,10 @@
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
     <title>tendril</title>
     <script type="text/javascript" src="/jquery-1.9.1.min.js"></script>
-    <script type="text/javascript" src="https://www.google.com/jsapi"></script>
-    <script type="text/javascript" src='https://www.google.com/jsapi?autoload={"modules":[{"name":"visualization","version":"1","packages":["corechart","table","orgchart"]}]}'></script>
+    <script src="https://www.gstatic.com/charts/loader.js"></script>
+    <script>
+        google.charts.load('47', {packages: ['corechart', 'table', 'orgchart']});
+    </script>
     <link href="/normalize.css" rel="stylesheet" type="text/css" />
     <link rel="shortcut icon" href="/favicon.ico"/>
     <?= pkg()->head() ?>
