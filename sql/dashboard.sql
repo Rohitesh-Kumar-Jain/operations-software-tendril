@@ -28,8 +28,8 @@ delimiter ;;
       signal sqlstate value '45000' set message_text = 'get_lock';
     end if;
 
-    select @stamp := now() - interval 7 day;
-    delete from global_status_log_5m where stamp < @stamp limit 10000;
+    select @stamp := now() - interval 2 day;
+    delete from global_status_log_5m where stamp < @stamp limit 1000000;
 
     do release_lock('tendril_purge_global_status_log_5m');
   end ;;
