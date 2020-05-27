@@ -36,3 +36,22 @@ delimiter ;;
 
   delimiter ;
 
+drop event if exists tendril_purge_global_status_log;
+
+delimiter ;;
+
+create event tendril_purge_global_status_log
+  on schedule every 5 minute starts date(now())
+  do begin
+
+    if (get_lock('tendril_purge_global_status_log', 1) = 0) then
+      signal sqlstate value '45000' set message_text = 'get_lock';
+    end if;
+
+    select @stamp := now() - interval 1 day;
+    delete from global_status_log where stamp < @stamp limit 3000000;
+
+    do release_lock('tendril_purge_global_status_log');
+  end ;;
+
+  delimiter ;
