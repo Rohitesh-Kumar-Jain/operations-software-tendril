@@ -88,6 +88,7 @@ class Package_Host extends Package
             ->fetch_all('id');
 
         $qps = sql('tendril.global_status_log gsl')
+            ->use_index('stamp')
             ->fields(array(
                 'srv.id',
                 'floor((max(value)-min(value))/(unix_timestamp(max(stamp))-unix_timestamp(min(stamp)))) as qps',

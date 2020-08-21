@@ -11,15 +11,16 @@ class SQL implements Iterator
 {
     protected static $db = null;
 
-    protected $table  = null;
-    protected $alias  = null;
-    protected $fields = array();
-    protected $where  = array();
-    protected $having = array();
-    protected $limit  = null;
-    protected $order  = array();
-    protected $group  = array();
-    protected $join   = array();
+    protected $table     = null;
+    protected $alias     = null;
+    protected $use_index = null;
+    protected $fields    = array();
+    protected $where     = array();
+    protected $having    = array();
+    protected $limit     = null;
+    protected $order     = array();
+    protected $group     = array();
+    protected $join      = array();
 
     protected $for_update = false;
     protected $share_mode = false;
@@ -295,6 +296,14 @@ class SQL implements Iterator
 
         $this->table = $table;
         $this->alias = $alias;
+
+        return $this;
+    }
+
+    // Add index hint to suggest the use of a different index
+    public function use_index($index)
+    {
+        $this->use_index = $index;
 
         return $this;
     }
@@ -679,7 +688,12 @@ class SQL implements Iterator
     }
 
     // methods for building SQL fragments
-    private function get_from()   { return 'from '.self::quote_name($this->table) .($this->alias ? ' '.$this->alias:''); }
+    private function get_from()
+    {
+        return 'from '.self::quote_name($this->table)
+               .($this->alias ? ' '.$this->alias:'')
+               .($this->use_index ? ' USE INDEX( '.self::quote_name($this->use_index).' )':'');
+    }
     private function get_join()   { return $this->join ? join(' ', $this->join): ''; }
     private function get_where()  { return $this->where ? 'where '.join(' and ', $this->where) : ''; }
     private function get_having() { return $this->having ? 'having '.join(' and ', $this->having) : ''; }
